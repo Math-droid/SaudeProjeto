@@ -9,22 +9,21 @@ use App\Models\loguintb;
 class LogintbController extends Controller
 {
     public function index(){
-        return view('index');
+        return view('Home');
     }
 
     public function showFormLogin(){
-        return view('cadastrar');
+        return view('TelaCadastro');
     }
 
     public function storeLogin(Request $request){
         $login= $request->validate([
-            'xxx'=>'string|required',
-            'xxx'=>'string|required',
-            'xxx'=>'string|required'
+            'emailFK'=>'string|required',
+            'senhaFK'=>'string|required'
         ]);
 
         cadastro::create($login);
-        return redirect::route('index');
+        return redirect::route('Home');
     }
 
 

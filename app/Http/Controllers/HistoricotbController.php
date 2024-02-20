@@ -9,11 +9,11 @@ use App\Models\historicotb;
 class HistoricotbController extends Controller
 {
     public function index(){
-        return view('index');
+        return view('Home');
     }
 
     public function showFormHistorico(){
-        return view('cadastrar');
+        return view('TelaCadastro');
     }
 
     public function storeHistorico(Request $request){
@@ -30,13 +30,13 @@ class HistoricotbController extends Controller
 
     public function showGerenciador(Request $request){
        $dados= historico::query();
-       $dados->when($request->xxx,function($query,$nome){
-        $query->where('xxx', 'like' , '%'.$nome.'%');
+       $dados->when($request->nome,function($query,$nome){
+        $query->where('nomeFK', 'like' , '%'.$nome.'%');
        });
 
        $dadoshistorico = $dadoshistorico->get();
 
-       return view('xxx', ['historicotb' => $dadoshistorico]);
+       return view('Hitórico', ['historicotb' => $dadoshistorico]);
     }
 
 

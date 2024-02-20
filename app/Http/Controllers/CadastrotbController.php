@@ -9,58 +9,39 @@ use App\Models\cadastrotb;
 class CadastrotbController extends Controller
 {
     public function index(){
-        return view('index');
+        return view('Home');
     }
 
     public function showFormCadastro(){
-        return view('cadastrar');
+        return view('Telacadastro');
     }
 
     public function storecadastro(Request $request){
         $cadastro= $request->validate([
-            'xxx'=>'string|required',
-            'xxx'=>'string|required',
-            'xxx'=>'string|required'
+            'nome'=>'string|required',
+            'email'=>'string|required',
+            'senha'=>'string|required'
         ]);
 
         cadastro::create($cadastro);
-        return redirect::route('index');
-    }
-
-
-    public function showHistorico(Request $request){
-       $dados= cadastro::query();
-       $dados->when($request->xxx,function($query,$nome){
-        $query->where('xxx', 'like' , '%'.$nome.'%');
-       });
-
-       $dadoscadastro = $dadoscadastro->get();
-
-       return view('xxx', ['cadastrotb' => $dadoscadastro]);
-    }
-
-
-    public function destroy(cadastro $id){
-        $id->delete();
-        return redirect::route('xxx');
-        
+        return redirect::route('Index');
     }
 
 
     public function update(cadastro $id, Request $request){
         $cadastro = $request->validate([
-            'xxx'=>'string|required',
-            'xxx'=>'string|required',
-            'xxx'=>'string|required'
+            'nome'=>'string|required',
+            'email'=>'string|required',
+            'senha'=>'string|required'
         ]);
 
         $id->fill($cadastro);
         $id->save();
-        return redirect::route('xxx');
+        return redirect::route('Home');
     }
 
 
     public function show(cadastro $id){
-        return view('xxx', ['cadastrotb'=> $id]);
+        return view('EditarConta', ['cadastrotb'=> $id]);
     }
 }
