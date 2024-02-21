@@ -8,9 +8,7 @@ use App\Models\loguintb;
 
 class LogintbController extends Controller
 {
-    public function index(){
-        return view('Home');
-    }
+   
 
     public function showFormLogin(){
         return view('TelaCadastro');
@@ -18,6 +16,7 @@ class LogintbController extends Controller
 
     public function storeLogin(Request $request){
         $login= $request->validate([
+            'idLogin'=>'string|required',
             'emailFK'=>'string|required',
             'senhaFK'=>'string|required'
         ]);

@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class logintb extends Model
 {
     use HasFactory;
-    protected $fillable = ['emailFK','senhaFK'];
+    protected $fillable = ['idLogin','nomeFK','emailFK','senhaFK'];
 }

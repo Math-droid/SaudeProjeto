@@ -1,10 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use app\Http\Controllers\CadastrotbController;
+use App\Http\Controllers\CadastrotbController;
 
  // --rotas cadastroController
-Route::get('/',[CadastrotbController::class,'index'])->name('Home');
+Route::get('/',[WebController::class,'index'])->name('tela_inicial');
 
 Route::get('/Cadastro',[CadastrotbController::class,'showFormCadastro'])->name('formulario-cadastro');
 

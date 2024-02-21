@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class cadastrotb extends Model
 {
     use HasFactory;
-    protected $fillable = ['nome','email','senha'];
+    protected $fillable = ['idCadastro','nome','email','senha'];
 }
